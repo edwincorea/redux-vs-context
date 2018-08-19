@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-
-import { searchTermChanged } from '../actions'
 
 import './App.css'
 
@@ -45,19 +42,4 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        food: state.food,
-        searchTerm: state.searchTerm
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        searchTermChanged: (searchTerm) =>
-            dispatch(searchTermChanged(searchTerm))
-    }
-}
-
-// https://www.sohamkamani.com/blog/2017/03/31/react-redux-connect-explained/
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App

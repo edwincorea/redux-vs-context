@@ -1,19 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import {Provider} from 'react-redux'
-import {createStore} from 'redux'
-
 import './index.css'
-import reducers from './reducers'
+
+import Provider from './containers/Provider'
+import Consumer from './containers/Consumer'
 import App from './containers/App'
 
-// Creating the store using the reducers info.
-// That's because reducers are the building blocks of a Redux Store.
-const store = createStore(reducers)
-
 ReactDOM.render(
-    <Provider store={store}>
-        <App/>
+    <Provider>
+        <Consumer>
+            <App />
+        </Consumer>
     </Provider>,
-    document.getElementById('root'))
+    document.getElementById('root')
+)
