@@ -1,4 +1,4 @@
-import food from './data/food'
+import food from '../data/food'
 
 const initialState = {
     food,

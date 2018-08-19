@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { searchTermChanged } from './actions'
+import { searchTermChanged } from '../actions'
 
 import './App.css'
 
@@ -54,8 +54,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        searchTermChanged: (e) =>
-            dispatch(searchTermChanged(e))
+        searchTermChanged: (searchTerm) =>
+            dispatch(searchTermChanged(searchTerm))
     }
 }
 

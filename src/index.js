@@ -6,7 +6,7 @@ import {createStore} from 'redux'
 
 import './index.css'
 import reducers from './reducers'
-import App from './App'
+import App from './containers/App'
 
 // Creating the store using the reducers info.
 // That's because reducers are the building blocks of a Redux Store.
