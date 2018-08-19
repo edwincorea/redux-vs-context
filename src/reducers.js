@@ -1,11 +1,11 @@
-import food from '../data/food'
+import food from './data/food'
 
 const initialState = {
     food,
     searchTerm: '',
 }
 
-export default function reducer(state = initialState, action) {
+const reducer = (state = initialState, action) => {
     // switch between the action type
     switch (action.type) {
     case 'SEARCH_INPUT_CHANGED': {
@@ -22,3 +22,5 @@ export default function reducer(state = initialState, action) {
         return state
     }
 }
+
+export default reducer

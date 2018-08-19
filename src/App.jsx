@@ -1,21 +1,63 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
+import { connect } from 'react-redux'
+
+import { searchTermChanged } from './actions'
+
 import './App.css'
 
 class App extends Component {
+    constructor(props) {
+        super(props)
+    }   
+
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
+            <div>
+                <div className="search">
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="Search"
+                        value={this.props.searchTerm}
+                        onChange={e => this.props.searchTermChanged(e.target.value)}
+                    />
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Origin</th>
+                            <th>Continent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.props.food.map(theFood => (
+                            <tr key={theFood.name}>
+                                <td>{theFood.name}</td>
+                                <td>{theFood.origin}</td>
+                                <td>{theFood.continent}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         )
     }
 }
 
-export default App
+const mapStateToProps = state => {
+    return {
+        food: state.food,
+        searchTerm: state.searchTerm
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        searchTermChanged: (e) =>
+            dispatch(searchTermChanged(e))
+    }
+}
+
+// https://www.sohamkamani.com/blog/2017/03/31/react-redux-connect-explained/
+export default connect(mapStateToProps, mapDispatchToProps)(App)

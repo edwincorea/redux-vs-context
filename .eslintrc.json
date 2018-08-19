@@ -47,6 +47,7 @@
         
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
+        "react/prop-types": 0,
         
         "jest/no-disabled-tests": "warn",
         "jest/no-focused-tests": "error",
